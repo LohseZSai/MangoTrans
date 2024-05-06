@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+{% load static %}
+
+<html>
+<head>
+    <title>登录 - Stellar by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <span class="logo"><img src="{% static 'images/logo.svg' %}" alt="" /></span>
+            <h1>登录</h1>
+            <p>使用您的社交账号登录</p>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Login Section -->
+            <section id="login" class="main special">
+                <header class="major">
+                    <h2>用户登录</h2>
+                </header>
+                <ul class="actions special">
+                    <li><a href="{% url 'login' %}" class="button primary">登录</a></li>
+                </ul>
+                <ul class="actions special">
+                    <li><a href="register.html" class="button">注册账号</a></li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <!-- Footer content -->
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
