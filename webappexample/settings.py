@@ -20,7 +20,13 @@ SECRET_KEY = "auth0-webappexample-k0n4a#6cqu9=co$_bu^^sd@&^8#*%ukg3z4ku!lj&j)%^@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mango-trans-jdukzzmon-lohses-projects.vercel.app',
+    'localhost',
+    '127.0.0.1',
+    # 其他你需要的主机名
+]
+
 
 # Application definition
 
