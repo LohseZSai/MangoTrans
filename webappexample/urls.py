@@ -10,5 +10,5 @@ urlpatterns = [
     path("login/", views.login, name="login"),
     path("logout/", views.logout, name="logout"),
     path("callback/", views.callback, name="callback"),
-    path("generic/", views.callback, name="generic"),
+    path("generic/", views.generic, name="generic"),
 ] + static (settings.STATIC_URL, document_root = settings.STATIC_ROOT)
