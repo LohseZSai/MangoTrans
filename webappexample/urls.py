@@ -12,4 +12,7 @@ urlpatterns = [
     path("callback/", views.callback, name="callback"),
     path("generic/", views.generic, name="generic"),
     path('profile/', views.profile, name='profile'),
+    path('image-translator/', views.image_translator, name='image_translator'),
+    path('pdf-translator/', views.pdf_translator, name='pdf_translator'),
+    path('contact/', views.contact, name='contact'),
 ] + static (settings.STATIC_URL, document_root = settings.STATIC_ROOT)

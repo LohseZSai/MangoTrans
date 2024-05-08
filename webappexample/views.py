@@ -4,7 +4,7 @@ from django.conf import settings
 from django.shortcuts import redirect, render, redirect
 from django.urls import reverse
 from urllib.parse import quote_plus, urlencode
-
+from django.http import HttpResponse
 oauth = OAuth()
 
 oauth.register(
@@ -60,6 +60,28 @@ def logout(request):
 def generic(request):
     # 直接渲染页面，不检查用户登录状态
     return render(request, 'generic.html')
+
+def image_translator(request):
+    if request.method == 'POST':
+        # 这里可以添加处理上传的图片和翻译的逻辑
+        # 返回翻译后的图片或链接
+        return HttpResponse("Image translated successfully!")
+    return render(request, 'image_translation.html')
+
+def pdf_translator(request):
+    if request.method == 'POST':
+        # 这里可以添加处理上传的PDF和翻译的逻辑
+        # 返回翻译后的PDF或链接
+        return HttpResponse("PDF translated successfully!")
+    return render(request, 'pdf_translation.html')
+
+def contact(request):
+    # 这里可以处理从联系表单收到的POST请求
+    if request.method == 'POST':
+        render(request, 'contact.html')
+    return render(request, 'contact.html')
+
+
     
     
 def profile(request):
