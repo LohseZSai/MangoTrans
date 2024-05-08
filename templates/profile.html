@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container { max-width: 800px; margin-top: 20px; }
+        .feature-card { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="mb-4">
+            <h1>User Profile</h1>
+        </header>
+
+        <!-- Account Information -->
+        <section id="account-info">
+            <h2>Account Information</h2>
+            <p><strong>Username:</strong> {{ session.userinfo.name }}</p>
+            <p><strong>Email:</strong> {{ session.userinfo.email }}</p>
+        </section>
+
+        <!-- Translation Features -->
+        <section id="features">
+            <div class="row">
+                <!-- Image Translation -->
+                <div class="col-md-6">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Image Translation</h5>
+                            <p class="card-text">Upload an image to translate any text it contains.</p>
+                            <a href="{% url 'image_translation' %}" class="btn btn-primary">Translate Image</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Translation -->
+                <div class="col-md-6">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">PDF Translation</h5>
+                            <p class="card-text">Upload a PDF file to translate its contents.</p>
+                            <a href="{% url 'pdf_translation' %}" class="btn btn-primary">Translate PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

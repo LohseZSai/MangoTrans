@@ -58,14 +58,21 @@ def logout(request):
 
 
 def generic(request):
-    # 确保用户已认证
-    if not request.session.get('user'):
-        # 将当前页面的路径作为 'next' 参数传递给 Auth0 登录流程
-        login_url = f"{reverse('login')}?next={request.path}"
-        return redirect(login_url)
+    # 直接渲染页面，不检查用户登录状态
+    return render(request, 'generic.html')
     
-    # 如果用户已认证，渲染对应页面
-    return render(request, 'generic.html', {
+    
+def profile(request):
+    # 检查用户是否已认证
+    if not request.session.get('user'):
+        # 用户未登录，重定向到登录页面，并传递当前页面路径作为 next 参数
+        return redirect(f"{reverse('login')}?next={request.path}")
+    
+    # 如果用户已认证，渲染个人中心页面
+    return render(request, 'profile.html', {
         "session": request.session.get("user"),
         "pretty": json.dumps(request.session.get("user"), indent=4),
-    })
+    })   
+    
+    
+    
