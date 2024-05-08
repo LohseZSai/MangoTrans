@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+import dj_database_url
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,10 +75,7 @@ WSGI_APPLICATION = "webappexample.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.parse('postgres://neondb_owner:DhtRLI8f5NVg@ep-noisy-breeze-a5bp4pdn-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require')
 }
 
 

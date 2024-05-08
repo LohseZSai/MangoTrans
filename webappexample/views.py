@@ -55,3 +55,17 @@ def logout(request):
             quote_via=quote_plus,
         ),
     )
+
+
+def generic(request):
+    # 确保用户已认证
+    if not request.session.get('user'):
+        # 将当前页面的路径作为 'next' 参数传递给 Auth0 登录流程
+        login_url = f"{reverse('login')}?next={request.path}"
+        return redirect(login_url)
+    
+    # 如果用户已认证，渲染对应页面
+    return render(request, 'generic.html', {
+        "session": request.session.get("user"),
+        "pretty": json.dumps(request.session.get("user"), indent=4),
+    })
